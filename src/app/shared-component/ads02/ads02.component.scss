@@ -1,0 +1,23 @@
+
+.ads-wrapper{
+    width: 100%;
+    overflow: hidden;
+    margin: 1rem 0;
+    .ads-container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-gap: 0.5rem;
+        padding: 0 0.5rem;
+
+    
+        .ads-item{   
+            width: 100%;    
+            img{
+                border-radius: 5px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+<div class="ads-wrapper">
+    <div class="ads-container" >
+        
+        <div class="ads-item" *ngFor="let ads1 of adsColonm1[0]">
+              
+            <ng-container *ngIf="ads1.LinkUrl">
+                <a href="{{ads1.LinkUrl}}" target="_blank"><img src="{{ads1.Url}}" alt=""></a>
+            </ng-container>
+
+            <ng-container  *ngIf="!ads1.LinkUrl">
+                <img src="{{ ads1.Url }}" alt="">
+            </ng-container>
+
+        </div>
+
+        <div class="ads-item" *ngFor="let ads1 of adsColonm2[0]">
+              
+            <ng-container *ngIf="ads1.LinkUrl">
+                <a href="{{ads1.LinkUrl}}" target="_blank"><img src="{{ads1.Url}}" alt=""></a>
+            </ng-container>
+
+            <ng-container  *ngIf="!ads1.LinkUrl">
+                <img src="{{ ads1.Url }}" alt="">
+            </ng-container>
+
+        </div>
+
+        <div class="ads-item" *ngFor="let ads1 of adsColonm3[0]">
+              
+            <ng-container *ngIf="ads1.LinkUrl">
+                <a href="{{ads1.LinkUrl}}" target="_blank"><img src="{{ads1.Url}}" alt=""></a>
+            </ng-container>
+
+            <ng-container  *ngIf="!ads1.LinkUrl">
+                <img src="{{ ads1.Url }}" alt="">
+            </ng-container>
+
+        </div>
+
+        <div class="ads-item" *ngFor="let ads1 of adsColonm4[0]">
+              
+            <ng-container *ngIf="ads1.LinkUrl">
+                <a href="{{ads1.LinkUrl}}" target="_blank"><img src="{{ads1.Url}}" alt=""></a>
+            </ng-container>
+
+            <ng-container  *ngIf="!ads1.LinkUrl">
+                <img src="{{ ads1.Url }}" alt="">
+            </ng-container>
+
+        </div>
+
+
+    </div>
+</div>
