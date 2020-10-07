@@ -1,0 +1,16 @@
+<div class="brand-wrapper">
+    <div class="brand-container" *ngIf="brandSliderService.BrandSlider | async as bSliders">
+
+        <div class="brand-item" *ngFor="let bSlider of bSliders">
+            
+            <ng-container *ngIf="bSlider.LinkUrl">
+                <a href="{{bSlider.LinkUrl}}" target="_blank"><img src="{{ baseUrl + bSlider.Url }}" alt=""></a>
+            </ng-container>
+
+            <ng-container *ngIf="!bSlider.LinkUrl">
+                <img src="{{  bSlider.Url }}" alt="">
+            </ng-container>
+
+        </div>
+    </div>
+</div>

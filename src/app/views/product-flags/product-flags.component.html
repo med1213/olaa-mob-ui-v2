@@ -1,0 +1,25 @@
+<div class="wrapper-products">
+    <div class="product-flag-name">
+        <div class="icon">
+            <span class="material-icons">
+                fiber_new
+            </span>
+        </div>
+        <div class="flag-name">{{title}}</div>
+    </div>
+    <div class="container-products">
+        <div class="grid-layout" *ngIf="showList.length > 0">
+            <a [routerLink]="['/product-detail',item.ProductId]" class="product-thumb" *ngFor="let item of getFlagsList()">
+                <div class="img">
+                    <img src="{{item.ProductImageUrl}}" alt="{{ item.ProductId }}">
+                </div>
+                <div class="product-name">
+                    <h4 class="name">{{item.ProductName}}</h4>
+                    <h5 class="price">{{item.SRP | currency:'':'':'4.0'}} LAK</h5>
+                    <h5 class="old-price" *ngIf="item.old">{{item.RRP | currency:'':'':'4.0'}} LAK</h5>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>

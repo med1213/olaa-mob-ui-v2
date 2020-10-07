@@ -1,0 +1,33 @@
+.footer-nav{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: #ff4747;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 0.5rem;
+    box-shadow: 0 1px 3px 0;
+    .footer-item{
+        flex: 1;
+        padding: 0.5rem;
+        overflow: hidden;
+        .item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            .icon{
+                color: #fff;
+            }
+            .text{
+                font-size: 3.8vw;
+                font-weight: 300;
+                text-transform: capitalize;
+            }
+        }
+    }
+}

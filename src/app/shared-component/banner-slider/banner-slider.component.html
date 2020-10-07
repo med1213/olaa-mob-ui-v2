@@ -1,0 +1,11 @@
+<div class="container" *ngIf="bannerSliderService.BannerSliders | async as BannerSliders">
+    <a class="product-thumb">
+        <div class="product-name">
+            <div class="touch__slide__container" id="touchSlideContainer">
+                <a class="slide__item" href="javarscrip:void(0)"  *ngFor="let banner of BannerSliders">
+                    <img [src]="banner.Url" alt="{{ banner.Id }}" >
+                </a>
+            </div>
+        </div>
+    </a>
+</div>

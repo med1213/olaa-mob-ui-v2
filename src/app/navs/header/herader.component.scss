@@ -1,0 +1,59 @@
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      
+        .container{
+            width: 100%;
+            
+            .nav-container{
+                padding: 1.5rem 1rem;
+                background-color: #ff4747;
+            
+                .nav-item{ 
+
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .item{
+                
+
+                        &:nth-child(2){
+                            position: relative;
+                            input{
+                                padding: 0.9rem 3rem;
+                                width: 100%; 
+                                border-radius: 3px;
+                                border: none;
+                                outline: none;
+                            }
+
+                            span{
+                                position: absolute;
+                                left: 0.6rem;
+                                top: 0.5rem;
+                                color: #777;
+
+                            }
+
+                        }
+
+                        &:nth-child(3),&:nth-child(1){
+                            span{
+                                color: white;
+                                font-size: 2.5rem;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+    }
+}
