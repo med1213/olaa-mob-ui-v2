@@ -52,4 +52,11 @@ export class ProductFlagsComponent implements OnInit {
     return this.showList.slice(0, this.lengthOfShow);
   }
 
+  getSeeMoreFunc(){
+    this.lengthOfShow += this.limitToSee;
+    this.getProds.getProductByFlagId(this.flagId, this.showList[this.showList.length - 1].ID, this.limitToSee).subscribe( res => {
+      res.map(res => Object.assign({}, res, { ProductImageUrl: EndPoint.baseImageUrl + res.ProductImageUrl })).forEach(res => this.showList.push(res));
+    })
+  }
+
 }
