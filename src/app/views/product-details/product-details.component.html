@@ -21,7 +21,7 @@
                 </span>
             </button>
 
-            <button class="btn-home">
+            <button class="btn-home" [routerLink]="['/']" routerLinkActive="router-link-active">
                 <span class="material-icons">
                     home
                 </span>
@@ -33,7 +33,7 @@
         <div class="detail-slider" id="slideWrapper">
             <ng-container *ngFor="let item of imageCover">
                 <div class="item">
-                    <img src="item.Url" alt="{{ item.ImageOrderIndex }}">
+                    <img src="{{item.Url}}" alt="{{ item.ImageOrderIndex }}">
                 </div>
             </ng-container>
         </div>
@@ -56,7 +56,7 @@
 
         <div class="description">
             <h5>Description</h5>
-            <p>{{productInfo.ProductDescription}}</p>
+            <p class="text">{{productInfo.ProductDescription}}</p>
         </div>
     </div>
 
@@ -71,17 +71,37 @@
             <div class="overviews" [ngClass]="{show: detail__index === 0}">
                 <img src="{{ item.Url }}" alt="" *ngFor="let item of imageOverview">
             </div>
-    
+
             <div class="specification" [ngClass]="{show: detail__index === 1}">
-                SPECIFICATIONS
+                <ng-container *ngFor="let item of productInfo.Spec">
+                    <ng-container *ngIf="item.ProductLabelId == 16">
+                        <p class="text">{{ item.Description }}</p>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.ProductLabelId == 15 && specLink.length > 0">
+                        <ng-container *ngFor="let item of specLink">
+                            <div class="spec-link">
+                                <p>{{ item.Label }} <a href="{{ item.LinkUrl }}" target="_blank">Click Here</a></p>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+
+                    <ng-container  *ngIf="item.ProductLabelId == 14 && specImg.length > 0">
+                        <ng-container *ngFor="let item of specImg">
+                            <div class="spec-img">
+                                <img [src]="item.ImageUrl" alt="">
+                            </div>
+                        </ng-container>
+                    </ng-container>
+
+                </ng-container>
             </div>
-    
+
             <div class="inbox" [ngClass]="{show: detail__index === 2}">
-                IN THE BOX
+                <p class="text">{{ productInfo.InTheBox }}</p>
             </div>
         </div>
-        
+
     </div>
 
 </div>
-

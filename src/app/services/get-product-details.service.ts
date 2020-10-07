@@ -35,5 +35,21 @@ export class GetProductDetailsService {
       catchError(() => of('server error'))
     )
   }
+
+  getProdSpecLinkById(id) {
+    return this.http.get(`${this.getDetailGroupSpecLinkUrl}${id}`).pipe(
+      take(1),
+      share(),
+      catchError(() => of('server error'))
+    )
+  }
+
+  getProdSpecImgById(id) {
+    return this.http.get(`${this.getDetailGroupSpecImgUrl}${id}`).pipe(
+      take(1),
+      share(),
+      catchError(() => of('server error'))
+    )
+  }
   
 }

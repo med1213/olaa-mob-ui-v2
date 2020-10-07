@@ -4,6 +4,7 @@ import { EndPoint } from '../../services/end-point'
 import {Location} from "@angular/common"
 import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { GetProductDetailsService } from 'src/app/services/get-product-details.service';
 
 @Component({
   selector: 'app-product-details',
@@ -16,11 +17,15 @@ export class ProductDetailsComponent implements OnInit {
     private routes: ActivatedRoute,
     private goBack: Location,    
     private renderer: Renderer2,
+    private getProdDetail: GetProductDetailsService
   ) { }
 
   public imageCover: {}[] = [];
   public imageOverview: {}[] = [];
   public productInfo;
+
+  public specImg: { OrderIndex: number; ImageUrl: string }[] = [];
+  public specLink: { OrderIndex: number; LinkUrl: string; Label: string }[] = [];
 
   preview__index = 1;
   detail__index = 0;
@@ -68,13 +73,13 @@ export class ProductDetailsComponent implements OnInit {
         })
     );
 
-    // this.productInfo.Spec.forEach(element => {
-    //   if (element.ProductLabelId == 14) {
-    //     this.getProdDetail.getProdSpecImgById(element.ProductDetailId).subscribe((result: any[]) => result.forEach(res => this.specImg.push({ OrderIndex: res.OrderIndex, ImageUrl: EndPoint.baseImageUrl + res.ImageUrl })));
-    //   } else if (element.ProductLabelId == 15) {
-    //     this.getProdDetail.getProdSpecLinkById(element.ProductDetailId).subscribe((result: any[]) => result.forEach(res => this.specLink.push({ Label: res.Label, LinkUrl: res.LinkUrl, OrderIndex: res.OrderIndex })))
-    //   }
-    // });
+    this.productInfo.Spec.forEach(element => {
+      if (element.ProductLabelId == 14) {
+        this.getProdDetail.getProdSpecImgById(element.ProductDetailId).subscribe((result: any[]) => result.forEach(res => this.specImg.push({ OrderIndex: res.OrderIndex, ImageUrl: EndPoint.baseImageUrl + res.ImageUrl })));
+      } else if (element.ProductLabelId == 15) {
+        this.getProdDetail.getProdSpecLinkById(element.ProductDetailId).subscribe((result: any[]) => result.forEach(res => this.specLink.push({ Label: res.Label, LinkUrl: res.LinkUrl, OrderIndex: res.OrderIndex })))
+      }
+    });
     // this.toast.showToast = false;
   }
 
