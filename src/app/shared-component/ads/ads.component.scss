@@ -1,0 +1,27 @@
+
+.brand-wrapper{
+    width: 100%;
+    overflow: hidden;
+    margin: 1rem 0;
+    .brand-container{
+        width: 100%;
+        overflow-x: scroll;
+        display: flex;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        // & {
+        //     -ms-overflow-style: none;  /* IE and Edge */
+        //     scrollbar-width: none;  /* Firefox */
+        // }
+        .brand-item{
+            padding: 0 0.5rem;    
+            width: 100%;    
+            img{
+                border-radius: 5px;
+                height: auto;
+                width: 100%;
+            }
+        }
+    }
+}

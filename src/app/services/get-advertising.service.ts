@@ -35,4 +35,14 @@ export class GetAdvertisingService {
       );
   }
 
+  getAdsList(id: number): Observable<any>{
+    const ads = new HttpParams()
+    .set('id', id.toString());
+  return this.http.get(this.getAds, {params:ads})
+    .pipe(
+
+      catchError(() => of('server error'))
+    );
+  }
+
 }

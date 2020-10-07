@@ -1,0 +1,16 @@
+<div class="brand-wrapper">
+    <div class="brand-container" *ngIf="ads[0]  as adsData">
+        
+        <div class="brand-item" *ngFor="let ads of adsData">
+              
+            <ng-container *ngIf="ads.LinkUrl">
+                <a href="{{ads.LinkUrl}}" target="_blank"><img src="{{ ads.Url }}" alt=""></a>
+            </ng-container>
+
+            <ng-container *ngIf="!ads.LinkUrl">
+                <img src="{{ ads.Url }}" alt="">
+            </ng-container>
+
+        </div>
+    </div>
+</div>

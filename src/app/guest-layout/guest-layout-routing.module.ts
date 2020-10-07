@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import{ HomeResolverService } from '../resolvers/home-resolver.service';
 import { BrandSliderService } from '../resolvers/brand-slider-resolver.service';
 import { ProductFlagsViewResolverService } from '../views/product-flags/product-flags-view-resolver.service'
-
+import {AdsResolverService} from '../resolvers/ads-resolver.service'
 export const GuestLayoutRoutingModule: Routes = [
   {
     path: '',
@@ -10,6 +10,7 @@ export const GuestLayoutRoutingModule: Routes = [
     resolve: {
       bannerSlides: HomeResolverService,
       brandSlider: BrandSliderService,
+      adslist: AdsResolverService,
     } 
   },
   {

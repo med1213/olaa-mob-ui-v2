@@ -5,7 +5,7 @@ import{ HomeViewRoutingModule } from '../home-view/home-view-routing.module';
 import { BannerSliderModule } from '../../shared-component/banner-slider/banner-slider.module';
 import { BrandSlideModule } from '../../shared-component/brand-slide/brand-slide.module';
 import { HomeProductModule } from '../../shared-component/home-product/home-product.module'
-
+import{AdsModule} from '../../shared-component/ads/ads.module';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { HomeProductModule } from '../../shared-component/home-product/home-prod
     HomeViewRoutingModule,
     BannerSliderModule,
     BrandSlideModule,
-    HomeProductModule
+    HomeProductModule,
+    AdsModule,
   ]
 })
 export class HomeViewModule { }
