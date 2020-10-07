@@ -15,18 +15,30 @@
                 background-color: #ff4747;
             
                 .nav-item{ 
-
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    
                     .item{
+
+                        &:nth-child(1){
+                            span{
+                                img{
+                                    width: 3rem;
+                                }
+                            }
+                        }
                 
 
                         &:nth-child(2){
                             position: relative;
+                            padding: 0 10px;
+                            width: 100%;
+                     
                             input{
-                                padding: 0.9rem 3rem;
+                                padding: 0 3rem;
+                                height: 30px;
                                 width: 100%; 
                                 border-radius: 3px;
                                 border: none;
@@ -35,8 +47,8 @@
 
                             span{
                                 position: absolute;
-                                left: 0.6rem;
-                                top: 0.5rem;
+                                left: 1.3rem;
+                                top: 0.4rem;
                                 color: #777;
 
                             }
@@ -45,8 +57,10 @@
 
                         &:nth-child(3),&:nth-child(1){
                             span{
-                                color: white;
-                                font-size: 2.5rem;
+                                img{
+                                    width: 2.5rem;
+                                }
+                                // font-size: 2.5rem;
                             }
                         }
                     }

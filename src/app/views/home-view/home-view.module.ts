@@ -6,7 +6,7 @@ import { BannerSliderModule } from '../../shared-component/banner-slider/banner-
 import { BrandSlideModule } from '../../shared-component/brand-slide/brand-slide.module';
 import { HomeProductModule } from '../../shared-component/home-product/home-product.module'
 import{AdsModule} from '../../shared-component/ads/ads.module';
-
+import {Ads02Module} from '../../shared-component/ads02/ads02.module'
 
 @NgModule({
   declarations: [HomeViewComponent],
@@ -17,6 +17,8 @@ import{AdsModule} from '../../shared-component/ads/ads.module';
     BrandSlideModule,
     HomeProductModule,
     AdsModule,
+    Ads02Module
+    
   ]
 })
 export class HomeViewModule { }
