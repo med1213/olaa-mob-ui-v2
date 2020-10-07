@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EndPoint } from '../../services/end-point'
 import {Location} from "@angular/common"
+import { fromEvent, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-details',
@@ -12,12 +14,18 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private routes: ActivatedRoute,
-    private goBack: Location,
+    private goBack: Location,    
+    private renderer: Renderer2,
   ) { }
 
   public imageCover: {}[] = [];
   public imageOverview: {}[] = [];
   public productInfo;
+
+  preview__index = 1;
+  detail__index = 0;
+  private tSContainer: Element;
+  private subscription: Subscription[] = [];
 
   ngOnInit(): void {
     this.loadData()
@@ -42,6 +50,31 @@ export class ProductDetailsComponent implements OnInit {
       };
 
     });
+    // this.toast.showToast = false;
+  }
+
+  ngAfterViewInit(): void {
+    this.tSContainer = document.getElementById("slideWrapper");
+    this.subscription.push(
+      fromEvent(this.tSContainer, "scroll")
+        .pipe(debounceTime(100))
+        .subscribe(() => {
+          if (((this.tSContainer.scrollLeft / this.tSContainer.clientWidth) % 1) > 0.5) {
+            this.renderer.setProperty(this.tSContainer, 'scrollLeft', `${this.tSContainer.clientWidth * Math.ceil(this.tSContainer.scrollLeft / this.tSContainer.clientWidth)}`);
+          } else {
+            this.renderer.setProperty(this.tSContainer, 'scrollLeft', `${this.tSContainer.clientWidth * Math.floor(this.tSContainer.scrollLeft / this.tSContainer.clientWidth)}`);
+          }
+          this.preview__index = (Math.floor(document.getElementById("slideWrapper").scrollLeft / document.getElementById("slideWrapper").clientWidth) + 1);
+        })
+    );
+
+    // this.productInfo.Spec.forEach(element => {
+    //   if (element.ProductLabelId == 14) {
+    //     this.getProdDetail.getProdSpecImgById(element.ProductDetailId).subscribe((result: any[]) => result.forEach(res => this.specImg.push({ OrderIndex: res.OrderIndex, ImageUrl: EndPoint.baseImageUrl + res.ImageUrl })));
+    //   } else if (element.ProductLabelId == 15) {
+    //     this.getProdDetail.getProdSpecLinkById(element.ProductDetailId).subscribe((result: any[]) => result.forEach(res => this.specLink.push({ Label: res.Label, LinkUrl: res.LinkUrl, OrderIndex: res.OrderIndex })))
+    //   }
+    // });
     // this.toast.showToast = false;
   }
 

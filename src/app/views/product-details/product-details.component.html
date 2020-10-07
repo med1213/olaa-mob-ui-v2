@@ -30,10 +30,58 @@
     </div>
 
     <div class="detail-preview">
-        <div class="detail-slider">
-            <div class="item">
-                <img src="../../../assets/SmallBanner_MB_01.png" alt="">
-            </div>
+        <div class="detail-slider" id="slideWrapper">
+            <ng-container *ngFor="let item of imageCover">
+                <div class="item">
+                    <img src="item.Url" alt="{{ item.ImageOrderIndex }}">
+                </div>
+            </ng-container>
+        </div>
+        <div class="slide__position">
+            <span>
+                {{preview__index}} / {{imageCover.length}}
+            </span>
         </div>
     </div>
+
+    <div class="detail-content">
+        <div class="price">
+            <div class="srp">{{ productInfo.SRP }} LAK</div>
+            <div class="rrp" *ngIf="productInfo.RRP > 0">{{ productInfo.RRP }} LAK</div>
+        </div>
+
+        <div class="name">
+            <h5>{{ productInfo.ProductName }}</h5>
+        </div>
+
+        <div class="description">
+            <h5>Description</h5>
+            <p>{{productInfo.ProductDescription}}</p>
+        </div>
+    </div>
+
+    <div class="detail-tabs">
+        <div class="tab-list">
+            <span (click)="detail__index = 0" [ngClass]="{'active': detail__index === 0}">OVERVIEW</span>
+            <span (click)="detail__index = 1" [ngClass]="{'active': detail__index === 1}">SPECIFICATIONS</span>
+            <span (click)="detail__index = 2" [ngClass]="{'active': detail__index === 2}">IN THE BOX</span>
+        </div>
+
+        <div class="content__wrapper">
+            <div class="overviews" [ngClass]="{show: detail__index === 0}">
+                <img src="{{ item.Url }}" alt="" *ngFor="let item of imageOverview">
+            </div>
+    
+            <div class="specification" [ngClass]="{show: detail__index === 1}">
+                SPECIFICATIONS
+            </div>
+    
+            <div class="inbox" [ngClass]="{show: detail__index === 2}">
+                IN THE BOX
+            </div>
+        </div>
+        
+    </div>
+
 </div>
+
