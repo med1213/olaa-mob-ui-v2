@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EndPoint } from '../../services/end-point'
+import {Location} from "@angular/common"
 
 @Component({
   selector: 'app-product-details',
@@ -10,7 +11,8 @@ import { EndPoint } from '../../services/end-point'
 export class ProductDetailsComponent implements OnInit {
 
   constructor(
-    private routes: ActivatedRoute
+    private routes: ActivatedRoute,
+    private goBack: Location,
   ) { }
 
   public imageCover: {}[] = [];
@@ -41,6 +43,10 @@ export class ProductDetailsComponent implements OnInit {
 
     });
     // this.toast.showToast = false;
+  }
+
+  backFunc(){
+    this.goBack.back();
   }
 
 }
