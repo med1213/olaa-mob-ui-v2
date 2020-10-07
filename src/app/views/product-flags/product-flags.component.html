@@ -22,4 +22,8 @@
 
         </div>
     </div>
+
+    <div class="see-more-wrapper">
+        <button (click)="getSeeMoreFunc()" class="see-more" [ngClass]="{showbtn: showList.length > lengthOfShow}">See More</button>
+    </div>
 </div>

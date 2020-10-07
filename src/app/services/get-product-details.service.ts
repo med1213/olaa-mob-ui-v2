@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { EndPoint } from './end-point';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of, forkJoin } from 'rxjs';
-import { share, catchError, take } from 'rxjs/operators';
+import { forkJoin, Observable, of } from 'rxjs';
+import { catchError, share, take } from 'rxjs/operators';
+import { EndPoint } from './end-point'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetProductDetailService {
-
+export class GetProductDetailsService {
 
   protected getProductListStore = EndPoint.mainUrl + 'v2/api/products/get/get-product-detail?pid=';
   protected getProductImage = EndPoint.mainUrl + 'v1/api/products/get/product-images-pid?pid=';
@@ -36,20 +35,5 @@ export class GetProductDetailService {
       catchError(() => of('server error'))
     )
   }
-
-  getProdSpecLinkById(id) {
-    return this.http.get(`${this.getDetailGroupSpecLinkUrl}${id}`).pipe(
-      take(1),
-      share(),
-      catchError(() => of('server error'))
-    )
-  }
-
-  getProdSpecImgById(id) {
-    return this.http.get(`${this.getDetailGroupSpecImgUrl}${id}`).pipe(
-      take(1),
-      share(),
-      catchError(() => of('server error'))
-    )
-  }
+  
 }

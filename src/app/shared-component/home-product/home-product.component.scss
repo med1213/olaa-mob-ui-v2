@@ -1,6 +1,6 @@
 .wrapper-products{
-    width: 100%;
-    margin-bottom: 10rem;
+    width: 100%;    
+    // padding-bottom: 50px;
     .product-flag-name{
         display: grid;
         grid-template-columns: 1fr 6fr 2fr;
@@ -19,6 +19,7 @@
         .flag-name{
             font-size: 5vw;
             padding: 0 1rem;
+            font-weight: 700;
         }
         .flag-link{
             text-decoration: none;
