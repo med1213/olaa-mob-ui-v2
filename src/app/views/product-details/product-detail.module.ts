@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from './product-details.component';
 import { ProductDetailRoutingModule } from './product-detail-routing.module';
+import { MenuOrderPipesModule } from '../../pipes/menu-order-pipes.module'
 
 
 
@@ -9,7 +10,8 @@ import { ProductDetailRoutingModule } from './product-detail-routing.module';
   declarations: [ProductDetailsComponent],
   imports: [
     CommonModule,
-    ProductDetailRoutingModule
+    ProductDetailRoutingModule,
+    MenuOrderPipesModule
   ]
 })
 export class ProductDetailModule { }

@@ -8,7 +8,7 @@
         </button>
 
         <div class="btns">
-            <button class="btn-cart">
+            <button class="btn-cart" [routerLink]="['/cart']">
                 <span class="material-icons">
                     shopping_cart
                 </span>
@@ -21,7 +21,7 @@
                 </span>
             </button>
 
-            <button class="btn-home" [routerLink]="['/']" routerLinkActive="router-link-active">
+            <button class="btn-home" [routerLink]="['/']">
                 <span class="material-icons">
                     home
                 </span>
@@ -42,38 +42,69 @@
                 {{preview__index}} / {{imageCover.length}}
             </span>
         </div>
+
+        <div class="favorite-icon" (click)="favorite()">
+            <span class="material-icons" *ngIf="!like">
+                favorite_border
+            </span>
+
+            <span class="material-icons like" *ngIf="like">
+                favorite
+            </span>
+        </div>
+
     </div>
 
     <div class="detail-content">
         <div class="price">
-            <div class="srp">{{ productInfo.SRP }} LAK</div>
-            <div class="rrp" *ngIf="productInfo.RRP > 0">{{ productInfo.RRP }} LAK</div>
+            <div class="srp">{{ productInfo.SRP | currency:'':'':'4.0' }} LAK</div>
+            <div class="rrp" *ngIf="productInfo.RRP > 0"><span>{{ productInfo.RRP | currency:'':'':'4.0' }} LAK</span>
+                <p>-{{(productInfo.RRP - productInfo.SRP)*100/(productInfo.RRP) | number:'1.0-0'}}%</p>
+            </div>
+            <div class="flag-wrapper" *ngIf="productInfo.Flags.length > 0">
+                <ng-container *ngFor="let item of productInfo.Flags">
+                    <ng-container *ngIf="item == 2">
+                        <div class="super-deal">SUPER DEALS</div>
+                    </ng-container>
+                    <ng-container *ngIf="item == 3">
+                        <div class="best-seller">BEST SELLER</div>
+                    </ng-container>
+                </ng-container>
+            </div>
+
         </div>
 
         <div class="name">
-            <h5>{{ productInfo.ProductName }}</h5>
+            <h4>{{ productInfo.ProductName }}</h4>
         </div>
 
         <div class="description">
             <h5>Description</h5>
             <p class="text">{{productInfo.ProductDescription}}</p>
         </div>
+
+        <ng-container *ngIf="!productInfo.NoStock">
+        <div class="no-stock">
+            <span class="material-icons">priority_high</span>
+            <span>NO STOCK</span>
+        </div>
+        </ng-container>
     </div>
 
     <div class="detail-tabs">
         <div class="tab-list">
-            <span (click)="detail__index = 0" [ngClass]="{'active': detail__index === 0}">OVERVIEW</span>
-            <span (click)="detail__index = 1" [ngClass]="{'active': detail__index === 1}">SPECIFICATIONS</span>
-            <span (click)="detail__index = 2" [ngClass]="{'active': detail__index === 2}">IN THE BOX</span>
+            <span (click)="selected_tab = 0" [ngClass]="{'active': selected_tab === 0}">OVERVIEW</span>
+            <span (click)="selected_tab = 1" [ngClass]="{'active': selected_tab === 1}">SPECIFICATIONS</span>
+            <span (click)="selected_tab = 2" [ngClass]="{'active': selected_tab === 2}">IN THE BOX</span>
         </div>
 
         <div class="content__wrapper">
-            <div class="overviews" [ngClass]="{show: detail__index === 0}">
-                <img src="{{ item.Url }}" alt="" *ngFor="let item of imageOverview">
+            <div class="overviews" [ngClass]="{show: selected_tab === 0}">
+                <img src="{{ item.Url }}" alt="" *ngFor="let item of imageOverview | orderBySort: 'ImageOrderIndex'">
             </div>
 
-            <div class="specification" [ngClass]="{show: detail__index === 1}">
-                <ng-container *ngFor="let item of productInfo.Spec">
+            <div class="specification" [ngClass]="{show: selected_tab === 1}">
+                <ng-container *ngFor="let item of productInfo.Spec | orderBySort: 'OrderIndex'">
                     <ng-container *ngIf="item.ProductLabelId == 16">
                         <p class="text">{{ item.Description }}</p>
                     </ng-container>
@@ -86,8 +117,8 @@
                         </ng-container>
                     </ng-container>
 
-                    <ng-container  *ngIf="item.ProductLabelId == 14 && specImg.length > 0">
-                        <ng-container *ngFor="let item of specImg">
+                    <ng-container *ngIf="item.ProductLabelId == 14 && specImg.length > 0">
+                        <ng-container *ngFor="let item of specImg | orderBySort: 'OrderIndex'">
                             <div class="spec-img">
                                 <img [src]="item.ImageUrl" alt="">
                             </div>
@@ -97,7 +128,7 @@
                 </ng-container>
             </div>
 
-            <div class="inbox" [ngClass]="{show: detail__index === 2}">
+            <div class="inbox" [ngClass]="{show: selected_tab === 2}">
                 <p class="text">{{ productInfo.InTheBox }}</p>
             </div>
         </div>

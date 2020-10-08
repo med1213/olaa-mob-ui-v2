@@ -28,9 +28,11 @@ export class ProductDetailsComponent implements OnInit {
   public specLink: { OrderIndex: number; LinkUrl: string; Label: string }[] = [];
 
   preview__index = 1;
-  detail__index = 0;
+  selected_tab = 0;
   private tSContainer: Element;
   private subscription: Subscription[] = [];
+
+  like = false;
 
   ngOnInit(): void {
     this.loadData()
@@ -81,6 +83,14 @@ export class ProductDetailsComponent implements OnInit {
       }
     });
     // this.toast.showToast = false;
+  }
+
+  favorite(){
+    if(!this.like){      
+      this.like = !this.like
+    } else{
+      this.like = !this.like
+    }
   }
 
   backFunc(){

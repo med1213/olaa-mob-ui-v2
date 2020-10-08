@@ -29,5 +29,17 @@ export const GuestLayoutRoutingModule: Routes = [
     resolve: {
       prodDetailData : ProductDetailsResolverService
     }
+  },
+  {
+    path: 'favorite',
+    loadChildren: () => import ('../views/favorite/favorite.module').then( m => m.FavoriteModule),
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('../views/cart/cart.module').then( m => m.CartModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('../views/accounts/accounts.module').then( m => m.AccountsModule)
   }
 ]

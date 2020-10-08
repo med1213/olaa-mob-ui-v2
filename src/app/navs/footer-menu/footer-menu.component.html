@@ -1,6 +1,6 @@
 <div class="footer-nav">
     <div class="footer-item">
-        <a [routerLink]="['/']" routerLinkActive="router-link-active"  class="item">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }"  class="item">
             <div class="icon">
                 <span class="material-icons">
                     home
@@ -22,7 +22,7 @@
     </div>
 
     <div class="footer-item">
-        <a href="javascript:void(0);" class="item">
+        <a [routerLink]="['/favorite']" routerLinkActive="router-link-active"  class="item">
             <div class="icon">
                 <span class="material-icons">
                     favorite
@@ -33,7 +33,7 @@
     </div>
 
     <div class="footer-item">
-        <a href="javascript:void(0);" class="item">
+        <a [routerLink]="['/cart']" routerLinkActive="router-link-active"  class="item">
             <div class="icon">
                 <span class="material-icons">
                     shopping_cart
@@ -44,7 +44,7 @@
     </div>
 
     <div class="footer-item">
-        <a class="item">
+        <a [routerLink]="['/account']" routerLinkActive="router-link-active"  class="item">
             <div class="icon">
                 <span class="material-icons">
                     account_circle
