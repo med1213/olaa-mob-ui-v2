@@ -55,6 +55,9 @@
 
     </div>
 
+    <div class="alert alert-success" *ngIf="alert">Add to favorite successfully</div>
+    <div class="alert alert-danger" *ngIf="removeAlert">Remove from favorite successfully</div>
+
     <div class="detail-content">
         <div class="price">
             <div class="srp">{{ productInfo.SRP | currency:'':'':'4.0' }} LAK</div>
@@ -136,3 +139,5 @@
     </div>
 
 </div>
+
+

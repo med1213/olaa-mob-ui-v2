@@ -5,11 +5,34 @@
     width: 100vw;
     line-height: 6vw;
 }
+
 .detail-wrapper{
     background-color: #fff;
     width: 100vw;
     padding-bottom: 80px;
     overflow-x: hidden;
+    position: relative;
+
+    .alert {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+    }
+    .alert-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6
+    }
+    .alert-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1
+    }
 
     .detail-header-bar{
         width: 100vw;
@@ -78,9 +101,10 @@
         margin-bottom: 1rem;
         min-height: 100vw;
         position: relative;
+        // top: 0;
         z-index: 1;
         .detail-slider{
-            position: relative;
+            // position: relative;
             overflow: hidden;
             overflow-x: scroll;
             display: grid;

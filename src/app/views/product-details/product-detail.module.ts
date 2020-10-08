@@ -11,7 +11,7 @@ import { MenuOrderPipesModule } from '../../pipes/menu-order-pipes.module'
   imports: [
     CommonModule,
     ProductDetailRoutingModule,
-    MenuOrderPipesModule
+    MenuOrderPipesModule,
   ]
 })
 export class ProductDetailModule { }

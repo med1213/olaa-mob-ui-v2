@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EndPoint } from '../../services/end-point'
-import {Location} from "@angular/common"
+import { Location } from "@angular/common"
 import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { GetProductDetailsService } from 'src/app/services/get-product-details.service';
@@ -15,9 +15,9 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private routes: ActivatedRoute,
-    private goBack: Location,    
+    private goBack: Location,
     private renderer: Renderer2,
-    private getProdDetail: GetProductDetailsService
+    private getProdDetail: GetProductDetailsService,
   ) { }
 
   public imageCover: {}[] = [];
@@ -33,6 +33,8 @@ export class ProductDetailsComponent implements OnInit {
   private subscription: Subscription[] = [];
 
   like = false;
+  alert = false;
+  removeAlert = false;
 
   ngOnInit(): void {
     this.loadData()
@@ -40,8 +42,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   async loadData() {
-    await this.routes.data.subscribe(result => { 
-    
+    await this.routes.data.subscribe(result => {
+
       this.imageCover = result.prodDetailData[1].filter(res => res.ProductImageSizeCategoryId == 1).map(res => Object.assign({}, res, { Url: `${EndPoint.baseImageUrl}${res.Url}` }));
       this.imageOverview = result.prodDetailData[1].filter(res => res.ProductImageSizeCategoryId == 4).map(res => Object.assign({}, res, { Url: `${EndPoint.baseImageUrl}${res.Url}` }));
       this.productInfo = {
@@ -85,15 +87,24 @@ export class ProductDetailsComponent implements OnInit {
     // this.toast.showToast = false;
   }
 
-  favorite(){
-    if(!this.like){      
-      this.like = !this.like
-    } else{
-      this.like = !this.like
+  favorite() {
+    if (!this.like) {
+      this.like = !this.like;
+      this.alert = true;
+      setTimeout(() => {
+        this.alert = false
+      }, 3000);
+
+    } else {
+      this.like = !this.like;
+      this.removeAlert = true;
+      setTimeout(() => {
+        this.removeAlert = false
+      }, 3000);
     }
   }
 
-  backFunc(){
+  backFunc() {
     this.goBack.back();
   }
 
