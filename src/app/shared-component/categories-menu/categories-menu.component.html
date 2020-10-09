@@ -1,0 +1,459 @@
+<div class="position">
+    <nav class="categpry-menu" [@fadeInAnimation] *ngIf="navigationService.toggleLeftSideMenu">
+        <div class="search-wrapper">
+            <div class="search">
+                <input type="text" placeholder="Search for products">
+            </div>
+            <div class="icon">
+                <span class="material-icons">
+                    search
+                </span>
+            </div>
+        </div>
+
+        <div class="menu-wrapper">
+            <div class="grid-two">
+
+                <div class="main-menu">
+                    <ng-container *ngIf="dsCategoriesService.getAllCateList() as CateList">
+                        <ng-container *ngFor="let cate of CateList">
+                            <ng-container *ngIf="cate.ParentId == 1">
+                                <div class="menu-list active">
+                                    <a href="javascript:void(0)" (click)="getCurrentCate(item.RefCategoryId,item.Name)">ddde{{ cate.Name }}</a>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </div>
+
+                <div class="sub-menu">
+                    <div class="category-ads">
+                        <div class="ads-item">
+                            <a href="javascript:void(0)">
+                                <img src="../../../assets/Miband5MoB_04.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sub-category-menu-list">
+
+                        <div class="category-item">
+                            <div class="category-name">
+                                <a href="javascript:void(0)">
+                                    <div class="name">Smart Electronics</div>
+                                    <div class="text-icon">
+                                        <span class="text">All</span>
+                                        <span class="material-icons">
+                                            keyboard_arrow_right
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="cate-product-item">
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-name">
+                                <a href="javascript:void(0)">
+                                    <div class="name">Smart Electronics</div>
+                                    <div class="text-icon">
+                                        <span class="text">All</span>
+                                        <span class="material-icons">
+                                            keyboard_arrow_right
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="cate-product-item">
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-name">
+                                <a href="javascript:void(0)">
+                                    <div class="name">Smart Electronics</div>
+                                    <div class="text-icon">
+                                        <span class="text">All</span>
+                                        <span class="material-icons">
+                                            keyboard_arrow_right
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="cate-product-item">
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-name">
+                                <a href="javascript:void(0)">
+                                    <div class="name">Smart Electronics</div>
+                                    <div class="text-icon">
+                                        <span class="text">All</span>
+                                        <span class="material-icons">
+                                            keyboard_arrow_right
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="cate-product-item">
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-name">
+                                <a href="javascript:void(0)">
+                                    <div class="name">Smart Electronics</div>
+                                    <div class="text-icon">
+                                        <span class="text">All</span>
+                                        <span class="material-icons">
+                                            keyboard_arrow_right
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="cate-product-item">
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-name">
+                                <a href="javascript:void(0)">
+                                    <div class="name">Smart Electronics</div>
+                                    <div class="text-icon">
+                                        <span class="text">All</span>
+                                        <span class="material-icons">
+                                            keyboard_arrow_right
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="cate-product-item">
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+
+                                <a href="javascript:void(0)" class="product-item">
+                                    <div class="product-img">
+                                        <img src="../../../assets/realmeX7_CV_003.jpg" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <h5>Products realme not 10 pro</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+</div>

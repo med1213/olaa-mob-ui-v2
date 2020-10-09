@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { GetAllProductService } from '../services/get-all-product.service';
+import { GetCategoriesService } from '../services/get-categories.service'
 
-export class ProductFlagsResolverService implements Resolve<any>{
+@Injectable({
+  providedIn: 'root'
+})
+export class GetCategoyResolverService implements Resolve<any>{
 
   constructor(
-    private getProductFlags: GetAllProductService
+    private getCategoriesService: GetCategoriesService
   ) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):Observable<any> {
-    return this.getProductFlags.getProductByFlagId(parseInt(route.paramMap.get("id")),0,12);
+    return this.getCategoriesService.getCates();
   }
 }

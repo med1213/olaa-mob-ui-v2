@@ -6,10 +6,10 @@
             </span>
         </div>
         <div class="flag-name">{{title}}</div>
-        <a class="flag-link" [routerLink]="['/product-flags', flagId]" >
+        <a class="flag-link" [routerLink]="['/product-flags', flagId]">
             <p>All</p>
             <span class="material-icons">
-                keyboard_arrow_right 
+                keyboard_arrow_right
             </span>
         </a>
     </div>
@@ -22,7 +22,20 @@
                 <div class="product-name">
                     <h4 class="name">{{item.ProductName}}</h4>
                     <h5 class="price">{{item.SRP | currency:'':'':'4.0'}} LAK</h5>
-                    <h5 class="old-price" *ngIf="item.old">{{item.RRP | currency:'':'':'4.0'}} LAK</h5>
+                    <div class="discount" *ngIf="item.RRP > 0">
+                        <h5 class="old-price"><span>{{item.RRP | currency:'':'':'4.0'}} LAK</span></h5>
+                        <span class="percentag">{{(item.RRP- item.SRP)*100/item.RRP | number:'1.0-0'}}%</span>
+                    </div>
+                </div>
+                <div class="badge">
+                    <ng-container *ngFor="let badge of [item.RefFlag1Id,item.RefFlag2Id,item.RefFlag3Id]">
+                        <div class="super-deal" *ngIf="badge == 2">SUPER DEAL</div>
+                        <div class="best-seller" *ngIf="badge == 3">BEST SELLER</div>
+                    </ng-container>
+                </div>
+
+                <div class="no-stock" *ngIf="!item.HasStock">
+                    <span>NO STOCK</span>
                 </div>
             </a>
 
